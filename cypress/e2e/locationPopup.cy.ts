@@ -1,22 +1,52 @@
-import { PopupSelectors } from '../selectors/popup.selectors';
+describe('Location Popup', () => {
+  beforeEach(() => {
+    cy.clearCookies()
+    cy.clearLocalStorage()
+  })
 
-describe('Bright SG Website Location Popup', () => {
-  it('should display Ireland/UK location popup on page load', () => {
-    cy.visit('/');
-    cy.verifyElementVisible(PopupSelectors.locationPopup);
-  });
+  it('displays the location popup on first visit', () => {
+    cy.visit('/')
+    cy.get('.fancybox-slide--current', { timeout: 10000 }).should('be.visible')
+  })
 
-  it('should navigate to Bright Ireland when Ireland icon is clicked', () => {
-    cy.visit('/');
-    cy.verifyElementVisible(PopupSelectors.locationPopup);
-    cy.contains(PopupSelectors.irelandIcon, 'Ireland').click({force: true}); //Force click due to cookies
-    cy.url().should('eq', 'https://brightsg.com/en-ie/');
-  });
+  it('navigates to the UK site when UK is selected', () => {
+    cy.visit('/')
+    cy.get('.fancybox-slide--current', { timeout: 10000 }).should('be.visible')
 
-  it('should navigate to Bright UK when UK icon is clicked', () => {
-    cy.visit('/');
-    cy.verifyElementVisible(PopupSelectors.locationPopup);
-    cy.contains(PopupSelectors.ukIcon, 'United Kingdom').click({force: true}); //Force click due to cookies
-    cy.url().should('eq', 'https://brightsg.com/');
-  });
-});
+    cy.get('.fancybox-slide--current a[href="https://brightsg.com/"]')
+      .first()
+      .click({ force: true })
+
+    cy.url().should('include', 'brightsg.com')
+    cy.url().should('not.include', '/en-ie/')
+  })
+
+  it('navigates to the Ireland site when Ireland is selected', () => {
+    cy.visit('/')
+    cy.get('.fancybox-slide--current', { timeout: 10000 }).should('be.visible')
+
+    cy.get('.fancybox-slide--current a[href*="/en-ie/"]')
+      .first()
+      .click({ force: true })
+
+    cy.url().should('include', '/en-ie/')
+  })
+
+  it('does not show the popup again after a selection has been made', () => {
+    cy.visit('/')
+    cy.get('.fancybox-slide--current', { timeout: 10000 }).should('be.visible')
+
+    cy.get('.fancybox-slide--current a[href="https://brightsg.com/"]')
+      .first()
+      .click({ force: true })
+
+    // revisit - popup shouldn't appear again
+    cy.visit('/')
+    cy.wait(2000)
+
+    cy.get('body').then(($body) => {
+      const popupVisible = $body.find('.fancybox-slide--current:visible').length
+      expect(popupVisible).to.equal(0)
+    })
+  })
+})

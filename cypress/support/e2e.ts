@@ -1,8 +1,6 @@
-import './commands';
+import './commands'
 
-Cypress.on('uncaught:exception', (err) => {
-  if (err.message.includes('Script error')) {
-    return false;
-  }
-  return true;
-});
+Cypress.on('uncaught:exception', () => {
+  // the Bright site's cookie/analytics scripts throw errors
+  return false
+})

@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "name": "BrightPay",
+      "slug": "brightpay-cloud-payroll-software",
+      "expectedTitleContains": "BrightPay"
+    },
+    {
+      "name": "BrightManager",
+      "slug": "brightmanager-accounting-practice-management-software",
+      "expectedTitleContains": "BrightManager"
+    },
+    {
+      "name": "BrightBooks",
+      "slug": "brightbooks-cloud-based-bookkeeping-software",
+      "expectedTitleContains": "BrightBooks"
+    },
+    {
+      "name": "BrightTax",
+      "slug": "brighttax-cloud-tax-accounts-production-software",
+      "expectedTitleContains": "BrightTax"
+    }
+  ],
+  "searchTerms": {
+    "valid": "payroll",
+    "noResults": "xyznonexistent123"
+  }
+}
