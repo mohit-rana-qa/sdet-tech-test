@@ -20,7 +20,6 @@ Cypress.Commands.add('verifyElementVisible', (selector: string) => {
 
 Cypress.Commands.add('dismissLocationPopup', () => {
   // the site uses a fancybox overlay for the location picker
- 
   cy.get('body').then(($body) => {
     const hasFancybox = $body.find('.fancybox-slide--current').length > 0
     const hasNectarPopup = $body.find('.nectar-box-roll').length > 0
