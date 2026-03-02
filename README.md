@@ -69,4 +69,4 @@ The site is a WordPress build using the Nectar theme, which threw up a few quirk
 
 ## Test Cases
 
-See [TEST_CASES.md](./TEST_CASES.md) for the manual test case designs (Part A).
+See [TEST CASES.md](https://github.com/mohit-rana-qa/sdet-tech-test/blob/main/cypress/TEST_CASES.md) for the manual test case designs (Part A).
