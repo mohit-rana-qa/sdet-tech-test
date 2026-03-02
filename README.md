@@ -1,33 +1,32 @@
-**SDET Technical Test – Bright SG
-**
-**Overview
-**
+# SDET Technical Test – Bright SG
+
+## Overview
+
 This solution expands the provided Cypress framework with:
 
-Automated E2E test cases
-
-Feature-based spec organisation
-
-Lightweight Page Object Model (POM)
-
-Custom Cypress commands
-
-Improved stability handling for third-party script errors
-
-Structured manual test cases in TEST_CASES.md
+- Automated E2E test cases
+- Feature-based spec organisation
+- Lightweight Page Object Model (POM)
+- Custom Cypress commands
+- Improved stability handling for third-party script errors
+- Structured manual test cases in `TEST_CASES.md`
 
 The goal was to keep the implementation clean, scalable, and maintainable within the 2-hour timebox.
 
-Prerequisites
+---
 
-Node.js (v16+)
+## Prerequisites
 
-npm
+- Node.js (v16+)
+- npm
 
-Setup
+---
+
+## Setup
 
 Install dependencies:
 
+```bash
 npm install
 Running Tests
 Headless Mode
