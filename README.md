@@ -1,9 +1,10 @@
-SDET Technical Test – Bright SG
-Overview
-
+**SDET Technical Test – Bright SG
+**
+**Overview
+**
 This solution expands the provided Cypress framework with:
 
-automated E2E test cases
+Automated E2E test cases
 
 Feature-based spec organisation
 
@@ -47,15 +48,15 @@ cypress/
 │   ├── locationPopup.cy.ts
 │   └── responsive.cy.ts
 │
-├── pages/                  # Lightweight Page Object Model
+├── pages/
 │   ├── HomePage.ts
 │   ├── ProductPage.ts
 │   ├── DemoPage.ts
 │   └── SupportPage.ts
 │
 ├── support/
-│   ├── commands.ts         # Custom Cypress commands
-│   └── e2e.ts              # Global configuration & exception handling
+│   ├── commands.ts
+│   └── e2e.ts
 │
 ├── fixtures/
 │   └── testData.json
@@ -81,7 +82,7 @@ Responsive behaviour (multiple viewports)
 Total: 32 automated tests
 
 Design Decisions
-1. Lightweight Page Object Model
+Lightweight Page Object Model
 
 Used to:
 
@@ -93,14 +94,14 @@ Keep tests maintainable
 
 Kept intentionally minimal to avoid over-engineering within the timebox.
 
-2. Custom Commands
+Custom Commands
 
-Used only where reuse improved clarity (e.g., cookie handling / reusable flows).
+Used only where reuse improved clarity (e.g., cookie handling and reusable flows).
 
-3. Exception Handling
+Exception Handling
 
 Handled known third-party script errors using:
 
 Cypress.on('uncaught:exception', () => false)
 
-This prevents analytics/cookie scripts from causing false test failures.
+This prevents analytics or cookie scripts from causing false test failures.
